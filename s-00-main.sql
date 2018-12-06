@@ -3,6 +3,8 @@
 --@Descripción:     Ejecutor de la base completa
 
 --Eliminamos usuarios en caso de existir.
+set serveroutput on
+
 declare
  v_count number(1,0);
 begin
@@ -30,6 +32,31 @@ begin
 
 	end if;
 
+	select count(*) into v_count
+	from DBA_SYS_PRIVS
+	where grantee = 'ROL_ADMIN';
+
+	if v_count > 0 then
+			dbms_output.put_line('Eliminando el ROL_ADMIN existente');
+			execute immediate 'drop ROLE ROL_ADMIN';
+	else
+			dbms_output.put_line('El rol ROL_ADMIN no existe');
+
+	end if;
+
+	select count(*) into v_count
+	from DBA_SYS_PRIVS
+	where grantee = 'ROL_INVITADO';
+
+	if v_count > 0 then
+			dbms_output.put_line('Eliminando el ROL_INVITADO existente');
+			execute immediate 'drop ROLE ROL_INVITADO';
+	else
+			dbms_output.put_line('El rol ROL_INVITADO no existe');
+
+	end if;
+
+
 end;
 /
 
@@ -37,7 +64,6 @@ end;
 @./s-01-usuarios.sql
 Prompt Conectandose como VAGU_PROY_ADMIN
 connect  VAGU_proy_admin;
-
 
 @./s-02-entidades.sql
 @./s-03-tablas-temporales.sql
