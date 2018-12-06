@@ -35,6 +35,7 @@ end;
 
 --Creamos ls usuarios.
 @./s-01-usuarios.sql
+Prompt Conectandose como VAGU_PROY_ADMIN
 connect  VAGU_proy_admin;
 
 
@@ -42,26 +43,26 @@ connect  VAGU_proy_admin;
 @./s-03-tablas-temporales.sql
 @./s-04-tablas-externas.sql
 @./s-05-secuencias.sql
-@./s-06-índices.sql
+@./s-06-indices.sql
 @./s-07-sinonimos.sql
-@./s-08-vistas-sql
+@./s-08-vistas.sql
 @./s-09-carga-inicial.sql
-@./s-10-consultas.sql
-@./s-11-tr-compund.sql
-@./s-11-tr-rl_1.sql
-@./s-11-tr-rl_2.sql
-@./s-12-tr-compund-prueba.sql
-@./s-12-tr-rl_1-prueba.sql
-@./s-12-tr-rl_2-prueba.sql
-@./s-13-p-1.sql
-@./s-13-p-2.sql
-@./s-14-p-1-prueba.sql
-@./s-14-p-2-prueba.sql
-@./s-15-fx-1.sql
-@./s-15-fx-2.sql
-@./s-15-fx-3.sql
-@./s-16-fx-1-prueba.sql
-@./s-16-fx-2-prueba.sql
-@./s-16-fx-3-prueba.sql
-@./s-17-lob.sql
-@./s-18-lob-prueba.sql
+--@./s-10-consultas.sql
+--@./s-11-tr-compund.sql
+--@./s-11-tr-rl_1.sql
+--@./s-11-tr-rl_2.sql
+--@./s-12-tr-compund-prueba.sql
+--@./s-12-tr-rl_1-prueba.sql
+--@./s-12-tr-rl_2-prueba.sql
+--@./s-13-p-1.sql
+--@./s-13-p-2.sql
+--@./s-14-p-1-prueba.sql
+--@./s-14-p-2-prueba.sql
+--@./s-15-fx-1.sql
+--@./s-15-fx-2.sql
+--@./s-15-fx-3.sql
+--@./s-16-fx-1-prueba.sql
+--@./s-16-fx-2-prueba.sql
+--@./s-16-fx-3-prueba.sql
+--@./s-17-lob.sql
+--@./s-18-lob-prueba.sql

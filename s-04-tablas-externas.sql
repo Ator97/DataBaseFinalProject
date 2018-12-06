@@ -1,7 +1,7 @@
 --@Autor(es):       Gutiérrez Castillo Oscar, Valderrama Navarro Armando
 --@Fecha creación:  01/12/2018
 --@Descripción:     Ejemplo de tabla externa, cargamos dos catalogos.
-
+Prompt Conectandose como usuario SYS
 connect sys as sysdba
 
 
@@ -24,7 +24,7 @@ grant read on directory tmp_dir to VAGU_proy_invitado;
 --ASIGNATURA, LA ADMINISTRACION, HA OPTADO DE MOMENTO MANTENER ESTE
 --ARCHIVO DE FORMA EXTERNA
 --
-
+prompt Conectando como VAGU_proy_admin
 connect  VAGU_proy_admin;
 
 
@@ -50,4 +50,3 @@ default directory tmp_dir
     location ('salario_profesor_asignatura.csv')
 )
 reject limit unlimited;
-;
