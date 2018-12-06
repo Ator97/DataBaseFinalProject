@@ -6,10 +6,10 @@ connect sys as sysdba
 
 
 prompt creando el directorio /tmp/bases en caso de no existir
-!mkdir -p /tmp/bases
+!mkdir -p /tmp/proy_bases
 
 prompt copiando el archivo csv a /tmp/proy_bases
-!cp empleado_ext.csv /tmp/proy_bases
+!cp salario_profesor_asignatura.csv /tmp/proy_bases
 prompt cambiando permisos
 !chmod 777 /tmp/proy_bases
 
@@ -25,11 +25,12 @@ grant read on directory tmp_dir to VAGU_proy_invitado;
 --ARCHIVO DE FORMA EXTERNA
 --
 
+connect  VAGU_proy_admin;
 
 
 CREATE TABLE SALARIO_PROFESOR_ASIGNATURA( --CATALOGO DE SALARIOS
   PROFESOR_ASIGNATURA_ID  NUMBER(6,0)  NOT NULL,
-  SALARIO_MENSUAL         NUMBER(7,2)  NOT NULL,
+  SALARIO_MENSUAL         NUMBER(7,2)  NOT NULL
 )
 organization external (
 --En oracle existen 2 tipos de drivers para parsear el archivo: -- oracle_loader y oracle_datapump
@@ -43,7 +44,7 @@ default directory tmp_dir
         lrtrim
         missing field values are null
         (
-        DIA_SEMANA_ID,DESCRIPCION
+        PROFESOR_ASIGNATURA_ID,SALARIO_MENSUAL
         )
 )
     location ('salario_profesor_asignatura.csv')

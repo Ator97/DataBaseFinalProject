@@ -8,11 +8,11 @@ declare
 begin
 	select count(*) into v_count
 	from dba_users
-	where username = 'VAGU_proy_admin'; 
+	where username = 'VAGU_PROY_ADMIN'; 
 
 	if v_count > 0 then
 			dbms_output.put_line('Eliminando usuario existente');
-			execute immediate 'drop user jrc_p1201_autos cascade';
+			execute immediate 'drop user VAGU_proy_admin cascade';
 	else
 			dbms_output.put_line('El usuario VAGU_proy_admin no existe');
 
@@ -20,11 +20,11 @@ begin
 
 	select count(*) into v_count
 	from dba_users
-	where username = 'VAGU_proy_invitado'; 
+	where username = 'VAGU_PROY_INVITADO'; 
 
 	if v_count > 0 then
 			dbms_output.put_line('Eliminando usuario existente');
-			execute immediate 'drop user jrc_p1201_autos cascade';
+			execute immediate 'drop user VAGU_proy_invitado cascade';
 	else
 			dbms_output.put_line('El usuario VAGU_proy_invitado no existe');
 
@@ -35,7 +35,7 @@ end;
 
 --Creamos ls usuarios.
 @./s-01-usuarios.sql
-connect as VAGU_proy_admin;
+connect  VAGU_proy_admin;
 
 
 @./s-02-entidades.sql
