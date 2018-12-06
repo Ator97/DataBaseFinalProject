@@ -1,7 +1,8 @@
 --@Autor(es):       Gutiérrez Castillo Oscar, Valderrama Navarro Armando
 --@Fecha creación:  01/12/2018
 --@Descripción:     Valida el correcto funcionamiento de la funcion promedio_estudiante
+set serveroutput on
 begin
-    select promedio_estudiante(1) as promedio_estudiante from dual;
+    dbms_output.put_line(promedio_estudiante_fx(1));
 end;
 /

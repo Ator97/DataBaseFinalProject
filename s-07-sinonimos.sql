@@ -7,7 +7,7 @@
 
 
 --Sinonimos publicos
-create or replace public synonym estudiante for VAGU_proy_admin.ESTUDIANTE;
+create or replace public synonym ESTUDIANTE for VAGU_proy_admin.ESTUDIANTE;
 create or replace public synonym ESTUDIANTE_INSCRITO for VAGU_proy_admin.ESTUDIANTE_INSCRITO;
 create or replace public synonym PROFESOR for VAGU_proy_admin.PROFESOR;
 

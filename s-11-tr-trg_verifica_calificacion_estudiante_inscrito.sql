@@ -2,13 +2,15 @@
 --@Fecha creación:  01/12/2018
 --@Descripción:     Trigger que valida la calificacion de los estudiantes.
 create or replace trigger trg_verifica_calificacion_estudiante_inscrito
-before insert or update calificacion on estudiante_inscrito
+before insert or update on estudiante_inscrito
 for each row
 begin
-    if :new.calificacion > 10 then
-        :new calificacion := 10;
-    elsif :new.calificacion < 5 then
-        :new.calificacion := 5;
+    if :new.CALIFICACION > 10 then
+        :new.CALIFICACION := 10;
+    elsif :new.CALIFICACION < 5 then
+        :new.CALIFICACION := 5;
     end if;
 end;
+/
+show errors
 --Agregar mas cosas.
