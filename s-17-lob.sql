@@ -1,7 +1,6 @@
 --@Autor(es):       Gutiérrez Castillo Oscar, Valderrama Navarro Armando
 --@Fecha creación:  01/12/2018
 --@Descripción:     <breve descripción del contenido y propósito del archivo>
-set serveroutput on
 prompt Actualizando imagen de estudiante
 prompt conectando como sys
 connect sys as sysdba
@@ -13,6 +12,7 @@ Prompt conectando como usuario VAGU_proy_admin
 connect VAGU_proy_admin
 
 Prompt creando procedimiento para actualizar imagenes.
+set serveroutput on
 create or replace procedure p_actualiza_imagen is
     v_bfile bfile;
     v_src_offset number := 1;
@@ -21,27 +21,28 @@ create or replace procedure p_actualiza_imagen is
     v_src_length number;
     v_dest_length number;
     v_nombre_archivo varchar2(1000);
-    cursor cur_libro_imagen is
-        select estudiante_id ,fotografia ,nombre, apellido_paterno
+    cursor cur_estudiante_foto is
+        select numero_cuenta ,fotografia
         from estudiante;
 begin
-    for r in cur_libro_imagen loop
+    for r in cur_estudiante_foto loop
         v_src_offset := 1;
         v_dest_offset := 1;
-        dbms_output.put_line('Cargando imagen para '||r.nombre||' '||r.apellido_paterno);
-        v_bfile := bfilename('DATA_DIR', r.nombre||' '||r.apellido_paterno);
+        dbms_output.put_line('Cargando imagen para '||r.numero_cuenta);
+        v_nombre_archivo := 'img-'||r.numero_cuenta||'.jpg';
+        v_bfile := bfilename('DATA_DIR', v_nombre_archivo);
 
         if dbms_lob.fileexists(v_bfile) = 1 and not dbms_lob.isopen(v_bfile) = 1 then dbms_lob.open(
             v_bfile, dbms_lob.lob_readonly);
         else raise_application_error(-20001, 'El archivo '
-            || r.nombre_archivo || ' ' || r.apellido_paterno
+            ||v_nombre_archivo
             ||' no existe en el directorio DATA_DIR'
             ||' o el archivo esta abierto');
         end if;
 
         select fotografia into v_dest_blob
         from estudiante
-        where estudiante_id = r.estudiante_id
+        where numero_cuenta = r.numero_cuenta
         for update;
 
         dbms_lob.loadblobfromfile(

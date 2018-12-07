@@ -1,0 +1,5 @@
+select avg(ei.calificacion) as promedio
+    from estudiante_inscrito ei
+    where ei.estudiante_id = 1
+    group by ei.estudiante_id
+/
