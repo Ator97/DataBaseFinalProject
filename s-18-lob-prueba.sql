@@ -1,6 +1,6 @@
 --@Autor(es):       Gutiérrez Castillo Oscar, Valderrama Navarro Armando
 --@Fecha creación:  01/12/2018
---@Descripción:     <breve descripción del contenido y propósito del archivo>
+--@Descripción:     Validador del procedimiento p_actualiza_imagen
 Prompt copiando imagenes
 !rm -rf /tmp/bd
 !mkdir -p /tmp/bd
