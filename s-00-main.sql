@@ -80,10 +80,10 @@ connect  VAGU_proy_admin;
 --@./s-12-tr-compund-prueba.sql
 --@./s-12-tr-rl_1-prueba.sql
 --@./s-12-tr-rl_2-prueba.sql
---@./s-13-p-1.sql
---@./s-13-p-2.sql
---@./s-14-p-1-prueba.sql
---@./s-14-p-2-prueba.sql
+@./s-13-p-1.sql
+@./s-13-p-2.sql
+@./s-14-p-1-prueba.sql
+@./s-14-p-2-prueba.sql
 @./s-15-fx-estudiante_carrera_fx.sql
 @./s-15-fx-estudiante_foto_fx.sql
 @./s-15-fx-promedio_estudiante_fx.sql
